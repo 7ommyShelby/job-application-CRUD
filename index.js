@@ -17,6 +17,6 @@ mongoose
 
 
 app.use(jobroutes);
-app.listen(8000, () => {
+app.listen(10000, () => {
     console.log("Server running at 8000");
 })
