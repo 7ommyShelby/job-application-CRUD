@@ -42,6 +42,7 @@ const listjob = async (req, res) => {
     }
 
 }
+
 const editjob = async (req, res) => {
     try {
 
@@ -49,22 +50,32 @@ const editjob = async (req, res) => {
         //     location : "Pune" 
         // }
 
-        const findjob = {
-            salary: { $gt: 20000 }
-        }
+        // const findjob = {
+        //     salary: { $gt: 20000 }
+        // }
 
-        const updatejob = {
-            location: "Goa"
-        }
+        // const updatejob = {
+        //     location: "Goa"
+        // }
 
-        // await jobmodel.updateMany(findjob, updatejob)
-        await jobmodel.findOneAndUpdate(findjob, updatejob)
+        // // await jobmodel.updateMany(findjob, updatejob)
+        // await jobmodel.findOneAndUpdate(findjob, updatejob)
 
+        // console.log(req.params.id);
+        const jobid = req.params.id;
+
+        const jobdata = await jobmodel.findByIdAndUpdate(jobid)
+
+        const loc = req.body.location;
+
+        jobdata.location = loc;
+        await jobdata.save();
 
         res.json({
             success: true,
             message: "Edit job"
         })
+
     } catch (error) {
         res.json({
             success: false,

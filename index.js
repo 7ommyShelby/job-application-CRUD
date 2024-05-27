@@ -1,5 +1,8 @@
 const express = require("express");
+require("dotenv").config();
 const mongoose = require('mongoose');
+
+const key = process.env.MONGOOSE_KEY
 
 const app = express();
 app.use(express.json());
@@ -9,7 +12,7 @@ const port = 10000;
 const jobroutes = require('./routes/jobs')
 
 mongoose
-.connect("mongodb+srv://7ommyShelby:8252854059Arya@jobapp.vjpdtlr.mongodb.net/")
+.connect(key)
 .then(() => {
     console.log("connection established with mongoose");
 })
