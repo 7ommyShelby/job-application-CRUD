@@ -7,7 +7,7 @@ app.use(express.json());
 const jobroutes = require('./routes/jobs')
 
 mongoose
-.connect("mongodb+srv://7ommyShelby:7ommyShelby@jobapp.vjpdtlr.mongodb.net/")
+.connect("mongodb+srv://7ommyShelby:8252854059Arya@jobapp.vjpdtlr.mongodb.net/")
 .then(() => {
     console.log("connection established with mongoose");
 })
