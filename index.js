@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 const app = express();
 app.use(express.json());
 
+const port = 10000;
+
 const jobroutes = require('./routes/jobs')
 
 mongoose
@@ -17,6 +19,6 @@ mongoose
 
 
 app.use(jobroutes);
-app.listen(10000, () => {
-    console.log("Server running at 8000");
+app.listen(port, () => {
+    console.log("Server running at :", port);
 })
